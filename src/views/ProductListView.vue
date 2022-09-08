@@ -74,7 +74,8 @@
 import tabIcon1 from "@/assets/tab-icon-1.svg";
 import BaseSelect from "@/components/BaseSelect.vue";
 import BaseTabGroup from "@/components/BaseTabGroup.vue";
-import ProductCard, { Product } from "@/components/ProductCard.vue";
+import ProductCard from "@/components/ProductCard.vue";
+import { Product } from "@/types";
 import { computed, Ref, ref } from "vue";
 import { useStore } from "vuex";
 

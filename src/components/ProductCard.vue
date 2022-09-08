@@ -27,19 +27,10 @@
 
 <script lang="ts" setup>
 import HeartIcon from "@/assets/icons/icon-heart.svg";
-import { defineProps, onMounted, onUnmounted, toRefs } from "vue";
-import { useStore } from "vuex";
 import StarRatingGroup from "@/components/star-rating/StarRatingGroup.vue";
-
-export interface Product {
-  image: string;
-  description: string;
-  price: number;
-  info: string;
-  rating: number;
-  watched: boolean;
-  id: string;
-}
+import { Product } from "@/types";
+import { defineProps, toRefs } from "vue";
+import { useStore } from "vuex";
 
 interface CardProps {
   product: Product;
@@ -48,42 +39,12 @@ interface CardProps {
 const props = defineProps<CardProps>();
 const { product } = toRefs(props);
 // const { image, description, price, info, rating, watched } = product;
-let heartButtons: HTMLElement[];
-let watchedButtons: HTMLElement[];
 
-function addHover(event: any) {
-  // event.target?..add("isWatched");
-
-  const target = event.target;
-  target.classList.add("isWatched");
-  target.querySelector(" path")?.setAttribute("fill", "#ffffff");
-}
-function removeHover(event: any) {
-  if (product.value.watched) return;
-  const target = event.target;
-  target.classList.remove("isWatched");
-  target.querySelector(" path")?.setAttribute("fill", "#2979FF");
-}
 const store = useStore();
 const handleWatch = () => {
   if (product.value.watched) store.dispatch("unWatchProduct", props.product);
   else store.dispatch("watchProduct", props.product);
 };
-onMounted(() => {
-  watchedButtons = Array.from(
-    document.querySelectorAll(".watch-button > button.isWatched")
-  );
-
-  watchedButtons.forEach((button) => {
-    button.querySelector(" path")?.setAttribute("fill", "#ffffff");
-  });
-});
-onUnmounted(() => {
-  heartButtons?.forEach((button) => {
-    button.removeEventListener("mouseenter", addHover, true);
-    button.removeEventListener("mouseleave", removeHover, true);
-  });
-});
 </script>
 
 <style lang="scss">
