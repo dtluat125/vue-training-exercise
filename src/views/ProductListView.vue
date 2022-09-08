@@ -68,6 +68,15 @@
       />
     </div>
   </div>
+  <div class="footer">
+    <FooterCard
+      v-for="(card, index) in footerCards"
+      :key="index"
+      :title="card.title"
+      :icon="card.icon"
+      :description="card.description"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -75,9 +84,11 @@ import tabIcon1 from "@/assets/tab-icon-1.svg";
 import BaseSelect from "@/components/BaseSelect.vue";
 import BaseTabGroup from "@/components/BaseTabGroup.vue";
 import ProductCard from "@/components/ProductCard.vue";
+import { footerList } from "@/data";
 import { Product } from "@/types";
 import { computed, Ref, ref } from "vue";
 import { useStore } from "vuex";
+import FooterCard from "@/components/FooterCard.vue";
 
 const sortBy = ref<keyof Product>("price");
 const condition = ref("");
@@ -102,6 +113,7 @@ const tags = ref([
     },
   },
 ]);
+const footerCards = ref(footerList);
 const store = useStore();
 const filterFn = ref(null);
 const handleFilterTag = (tag: any) => {
@@ -129,6 +141,9 @@ const sortedProducts = computed(() => {
   display: flex;
   flex-direction: column;
   row-gap: 40px;
+  box-shadow: 0px 1px 2px rgba(58, 58, 68, 0.24),
+    0px 2px 4px rgba(90, 91, 106, 0.24);
+  border-radius: 8px;
 
   .section-header {
     padding-top: 16px;
@@ -183,5 +198,14 @@ const sortedProducts = computed(() => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
+}
+.footer {
+  width: 100%;
+  display: flex;
+  column-gap: 16px;
+  .card-container {
+    flex: 1;
+  }
+  margin: 40px 0 96px;
 }
 </style>

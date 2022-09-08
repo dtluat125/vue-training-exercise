@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-card-container">
+  <div class="footer-card-container">
     <div class="card-section icon">
       <!-- <img :src="props.icon" alt="icon" /> -->
       <component class="img" :is="(props.icon as typeof Component)"></component>
@@ -28,16 +28,16 @@ const props = defineProps<CardProps>();
 </script>
 
 <style lang="scss" scoped>
-.layout-card-container {
-  background-color: #ffffff;
+.footer-card-container {
+  background-color: #ededf0;
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  align-items: start;
+  padding: 28px 16px;
+  align-items: center;
   .card-section {
-    text-align: start;
+    text-align: center;
   }
-  border-radius: 16px;
+  border-radius: 8px;
   flex-grow: 1;
 }
 

@@ -5,6 +5,10 @@ import icon4 from "@/assets/icons/icon-4.svg";
 import icon5 from "@/assets/icons/icon-5.svg";
 import icon6 from "@/assets/icons/icon-6.svg";
 
+import footer1 from "@/assets/icons/footer-1.svg";
+import footer2 from "@/assets/icons/footer-2.svg";
+import footer3 from "@/assets/icons/footer-3.svg";
+
 import img1 from "@/assets/products/Image-1.png";
 import img2 from "@/assets/products/Image-2.png";
 import img3 from "@/assets/products/Image-3.png";
@@ -47,6 +51,23 @@ export const cardList = [
     icon: icon6,
     title: "Variant components",
     description: "All component art variant, easy to design, easy to control",
+  },
+];
+export const footerList = [
+  {
+    icon: footer1,
+    title: "Clear & Usable user flows",
+    description: "Let’s boost yout marketplace",
+  },
+  {
+    icon: footer2,
+    title: "Fine & Styled components",
+    description: "Speed up with Setproduct templates",
+  },
+  {
+    icon: footer3,
+    title: "Customizable & Reusable",
+    description: "Take our UX patterns and rebuild",
   },
 ];
 export const productList = [
