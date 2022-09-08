@@ -1,13 +1,18 @@
 <template>
-  <!-- <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav> -->
+  <nav>
+    <router-link to="/">1.1</router-link> |
+    <router-link to="/about">1.2</router-link>
+  </nav>
   <router-view />
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Epilogue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epilogue&family=Inter&display=swap");
+
+.verticle-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 body {
   margin: 0;
@@ -21,15 +26,14 @@ body {
   font-family: Epilogue, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  background-image: url("/src/assets/bg.png");
   min-height: 100vh;
   height: auto;
 }
 
 nav {
   padding: 30px;
+  position: absolute;
 }
 
 nav a {

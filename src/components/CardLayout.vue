@@ -1,7 +1,8 @@
 <template>
   <div class="card-container">
     <div class="card-section icon">
-      <img :src="props.icon" alt="icon" />
+      <!-- <img :src="props.icon" alt="icon" /> -->
+      <component class="img" :is="(props.icon as typeof Component)"></component>
     </div>
     <div class="card-section title">
       {{ props.title }}
@@ -14,11 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from "vue";
+import { defineProps, Component } from "vue";
 import { marked } from "marked";
 
 interface CardProps {
-  icon: string;
+  icon: Component;
   title: string;
   description: string;
 }

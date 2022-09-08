@@ -18,10 +18,10 @@ import CardLayout from "@/components/CardLayout.vue"; // @ is an alias to /src
 import { cardList } from "@/data";
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .card-list-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(490px, 1fr));
   row-gap: 32px;
   column-gap: 20px;
   grid-auto-rows: 1fr;
@@ -34,7 +34,9 @@ import { cardList } from "@/data";
 }
 
 .home {
-  height: 100%;
+  min-height: 100vh;
+  background-image: url("/src/assets/bg.png");
+  text-align: center;
 }
 h1 {
   display: inline-block;
