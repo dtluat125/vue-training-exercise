@@ -7,8 +7,7 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Epilogue&family=Inter&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Epilogue&family=Inter&family=Quicksand&display=swap");
 .verticle-center {
   top: 50%;
   transform: translateY(-50%);

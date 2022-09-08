@@ -39,20 +39,23 @@ const props = defineProps<CardProps>();
   }
   border-radius: 8px;
   flex-grow: 1;
+  font-family: "Quicksand", sans-serif;
 }
 
 .title {
   font-weight: 400;
-  font-size: 24px;
   color: #333333;
   margin-top: 20px;
   margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .description {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
+  font-size: 14px;
+  line-height: 143%;
   color: #555555;
 }
 
