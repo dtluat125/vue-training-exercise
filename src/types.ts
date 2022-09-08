@@ -6,4 +6,9 @@ export interface Product {
   rating: number;
   watched: boolean;
   id: string;
+  badge?: {
+    content: string;
+    backgroundColor: string;
+    color: string;
+  };
 }

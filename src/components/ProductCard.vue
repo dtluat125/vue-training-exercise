@@ -6,7 +6,16 @@
     <div class="card-description">
       {{ product.description }}
     </div>
-    <div class="card-price">${{ product.price }}</div>
+    <div class="card-middle">
+      <div class="card-price">${{ product.price }}</div>
+      <div v-if="product.badge" class="card-badge">
+        <Badge
+          :content="product.badge.content"
+          :color="product.badge.color"
+          :background-color="product.badge.backgroundColor"
+        />
+      </div>
+    </div>
 
     <div class="card-info">
       {{ product.info }}
@@ -31,6 +40,7 @@ import StarRatingGroup from "@/components/star-rating/StarRatingGroup.vue";
 import { Product } from "@/types";
 import { defineProps, toRefs } from "vue";
 import { useStore } from "vuex";
+import Badge from "@/components/Badge.vue";
 
 interface CardProps {
   product: Product;
@@ -82,6 +92,13 @@ const handleWatch = () => {
     font-weight: 700;
     font-size: 24px;
     line-height: 150%;
+  }
+
+  .card-middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 
   .card-info {

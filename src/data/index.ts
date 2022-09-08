@@ -58,6 +58,11 @@ export const productList = [
     rating: 4.2,
     info: "This is info",
     watched: false,
+    badge: {
+      content: "50% OFF!!",
+      color: "#37833B",
+      backgroundColor: "#ECF7ED",
+    },
   },
   {
     id: 2,
