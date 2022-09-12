@@ -12,3 +12,10 @@ export interface Product {
     color: string;
   };
 }
+
+export interface LaptopProduct extends Product {
+  name: string;
+  previousPrice: string;
+  numReviews: number;
+  category: string;
+}

@@ -1,8 +1,13 @@
+import {
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+} from "@apollo/client/core";
+import { DefaultApolloClient } from "@vue/apollo-composable";
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import { camelCase, upperFirst } from "lodash";
 
 const requireComponent = require.context(
   "./components",
@@ -22,4 +27,21 @@ const app = createApp(App);
 //   app.component(componentName, componentConfig.default || componentConfig);
 // });
 
-app.use(store).use(router).mount("#app");
+// Apollo Client Config
+const httpLink = createHttpLink({
+  uri: "http://localhost:4000/graphql",
+});
+
+const cache = new InMemoryCache();
+
+const apolloClient = new ApolloClient({
+  link: httpLink,
+  cache,
+});
+
+// apolloClient.query({ query: ALL_BOOKS_QUERY }).then((res) => console.log(res));
+app
+  .provide(DefaultApolloClient, apolloClient)
+  .use(store)
+  .use(router)
+  .mount("#app");

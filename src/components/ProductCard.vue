@@ -26,7 +26,7 @@
       </div>
       <div class="watch-button" ref="buttonRef" @click="handleWatch">
         <button :class="{ isWatched: product.watched }">
-          <HeartIcon class="img" ref="heartRef" />
+          <HeartIcon v-if="!product.watched" class="img" ref="heartRef" />
           <span>{{ product.watched ? "Unwatched" : "Watched" }}</span>
         </button>
       </div>

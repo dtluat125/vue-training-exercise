@@ -1,13 +1,14 @@
 <template>
   <nav>
     <router-link to="/">1.1</router-link> |
-    <router-link to="/about">1.2</router-link>
+    <router-link to="/about">1.2</router-link> |
+    <router-link to="/week2">Week 2</router-link>
   </nav>
   <router-view />
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Epilogue&family=Inter&family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epilogue&family=Inter&family=Poppins&family=Quicksand&display=swap");
 .verticle-center {
   top: 50%;
   transform: translateY(-50%);
@@ -28,11 +29,13 @@ body {
   color: #2c3e50;
   min-height: 100vh;
   height: auto;
+  position: relative;
 }
 
 nav {
   padding: 30px;
   position: absolute;
+  z-index: 1;
 }
 
 nav a {
