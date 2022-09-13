@@ -5,7 +5,9 @@
         <div class="nav-logo">
           <NavLogo />
         </div>
-        <div class="nav-item">Laptops</div>
+        <div class="nav-item">
+          <router-link :to="{ name: 'Products' }">Laptops</router-link>
+        </div>
         <div class="nav-item">Desktop PCs</div>
         <div class="nav-item">Networking Devices</div>
       </div>

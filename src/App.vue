@@ -2,7 +2,7 @@
   <nav>
     <router-link to="/">1.1</router-link> |
     <router-link to="/about">1.2</router-link> |
-    <router-link to="/week2">Week 2</router-link>
+    <router-link :to="{ name: 'Products' }">Week 2</router-link>
   </nav>
   <router-view />
 </template>
@@ -45,5 +45,10 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 </style>

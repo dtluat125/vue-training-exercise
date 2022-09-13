@@ -1,8 +1,18 @@
 <template>
   <div class="card-container-2" v-if="product">
-    <div class="card-image">
-      <img :src="product.image" alt="Product Image" />
-    </div>
+    <router-link
+      v-if="product"
+      :to="{
+        name: 'ProductAbout',
+        params: {
+          id: product.id,
+        },
+      }"
+    >
+      <div class="card-image">
+        <img :src="product.image" alt="Product Image" />
+      </div>
+    </router-link>
     <div class="card-body">
       <div class="card-name">
         {{ product.name }}
@@ -55,7 +65,6 @@
       </button>
     </div>
   </div>
-  {{ inCart }}
 </template>
 
 <script lang="ts" setup>

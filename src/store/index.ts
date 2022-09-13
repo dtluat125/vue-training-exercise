@@ -7,6 +7,7 @@ export default createStore({
     products: productList,
     lapProducts: lapList,
     cartItems: [] as LaptopProduct[],
+    product: {},
   },
   getters: {
     isProductInCart:
@@ -39,6 +40,9 @@ export default createStore({
     ADD_TO_CART(state, product) {
       state.cartItems = [...state.cartItems, product];
     },
+    VIEW_PRODUCT(state, product) {
+      state.product = product;
+    },
   },
   actions: {
     watchProduct({ commit }, product) {
@@ -50,6 +54,9 @@ export default createStore({
     addToCart({ commit }, product) {
       if (!this.getters.isProductInCart(product))
         commit("ADD_TO_CART", product);
+    },
+    viewProduct({ commit }, product) {
+      commit("VIEW_PRODUCT", product);
     },
   },
   modules: {},
