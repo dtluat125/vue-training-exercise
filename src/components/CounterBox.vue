@@ -39,7 +39,7 @@ const emit = defineEmits<{ (e: "update:modelValue", value: number): void }>();
   display: flex;
   align-items: center;
   width: 70px;
-  padding: 16px;
+  padding: 12px 16px;
   justify-content: center;
   column-gap: 14px;
   span {

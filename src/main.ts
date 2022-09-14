@@ -1,4 +1,6 @@
 import "nprogress/nprogress.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
 import {
   ApolloClient,
   createHttpLink,

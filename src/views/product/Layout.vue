@@ -17,7 +17,7 @@
         <span>On Sale from </span> <strong>${{ formatedPrice }}</strong>
       </div>
       <CounterBox v-model="numProd" />
-      <button>Add To Cart</button>
+      <button @click="handleAddToCart(product, numProd)">Add To Cart</button>
     </div>
   </div>
   <div class="product-wrapper" v-if="product">
@@ -74,6 +74,18 @@ const formatedPrice = computed(() =>
 );
 
 const numProd = ref(0);
+const handleAddToCart = (prod: LaptopProduct, quantity = 1) => {
+  const prodInCart = store.getters.getProductInCart(prod.id);
+  let newProd = {};
+  console.log(prodInCart?.quantity);
+  if (prodInCart) {
+    newProd = {
+      ...prodInCart,
+      quantity: prodInCart.quantity + quantity,
+    };
+  } else newProd = { ...prod, quantity: quantity };
+  store.dispatch("addToCart", newProd);
+};
 </script>
 
 <style lang="scss">

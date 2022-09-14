@@ -14,12 +14,14 @@
       <div class="app-bar__right">
         <div class="nav-item"><SearchIcon /></div>
         <div class="nav-item">
-          <div class="icon-with-badge">
-            <CartBlackIcon />
-            <div class="badge">
-              <span>{{ cartItems.length }}</span>
+          <router-link :to="{ name: 'Cart' }">
+            <div class="icon-with-badge">
+              <CartBlackIcon />
+              <div class="badge">
+                <span>{{ cartCount }}</span>
+              </div>
             </div>
-          </div>
+          </router-link>
         </div>
         <div class="nav-item">Right 3</div>
       </div>
@@ -35,7 +37,7 @@ import SearchIcon from "@/assets/icons/search-icon.svg";
 import { useStore } from "vuex";
 import { computed } from "vue";
 const store = useStore();
-const cartItems = computed(() => store.state.cartItems);
+const cartCount = computed(() => store.getters.cartCount);
 </script>
 
 <style lang="scss">

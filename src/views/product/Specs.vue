@@ -28,7 +28,7 @@ interface ProductProps {
 const props = defineProps<ProductProps>();
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .card-stats {
   width: 400px;
   display: flex;

@@ -165,7 +165,7 @@ export const lapList = [
     previousPrice: 60,
     image: img2,
     description: "some long des haha",
-    price: 99,
+    price: 999.9,
     rating: 3.2,
     info: "This is info",
     watched: true,

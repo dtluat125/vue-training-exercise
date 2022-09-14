@@ -4,7 +4,10 @@ export function numberWithCommas(x = 0) {
 export const numberFormat2 = (num?: number | null): string =>
   typeof num === "number" ? (Math.round(num * 100) / 100).toFixed(2) : "0";
 
-export const numberWithCommasFormat2 = (x = 0) => {
-  const dotNum = numberFormat2(x);
-  return numberWithCommas(Number(dotNum));
+export const numberWithCommasFormat2 = (num = 0) => {
+  const dotNum = numberFormat2(num);
+  const tail = dotNum.split(".")[1];
+  const commaNum = numberWithCommas(num);
+  if (commaNum.includes(".")) return commaNum.replace(/\.[^.]*$/g, `.${tail}`);
+  return commaNum.concat(`.${tail}`);
 };

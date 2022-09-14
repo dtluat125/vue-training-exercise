@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="container">
+  <div class="my-container">
     <AppBar />
     <!-- <div class="divider"></div> -->
     <div class="content-container">
@@ -14,14 +14,10 @@ import AppBar from "@/components/AppBar.vue";
 </script>
 
 <style lang="scss">
-.container {
+.my-container {
   font-family: "Poppins", sans-serif;
   position: relative;
   z-index: 2;
-  .divider {
-    margin-top: 92px;
-    border: 1px solid #cacdd8;
-  }
 
   .content-container {
     margin-top: 92px;

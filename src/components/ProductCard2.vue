@@ -38,8 +38,10 @@
         </div>
       </div>
       <div class="card-price">
-        <span v-if="product.previousPrice">${{ product.previousPrice }}</span>
-        ${{ product.price }}
+        <span v-if="product.previousPrice"
+          >${{ numberWithCommasFormat2(Number(product.previousPrice)) }}</span
+        >
+        ${{ numberWithCommasFormat2(Number(product.price)) }}
       </div>
     </div>
     <div class="rating-container">
@@ -58,7 +60,7 @@
 
       <span>Reviews (4)</span>
     </div>
-    <div class="add-to-cart-button" ref="buttonRef" v-if="!inCart">
+    <div class="add-to-cart-button" ref="buttonRef">
       <button @click="handleAddToCart(product)">
         <CartIcon class="img" ref="heartRef" />
         <span>Add To Cart</span>
@@ -75,6 +77,7 @@ import { useStore } from "vuex";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 import StarRating from "vue-star-rating";
+import { numberWithCommasFormat2 } from "@/utils";
 
 interface CardProps {
   product: LaptopProduct;
@@ -86,10 +89,17 @@ const { product, grid } = toRefs(props);
 // const { image, description, price, info, rating, watched } = product;
 
 const store = useStore();
-const handleAddToCart = (prod: LaptopProduct) => {
-  store.dispatch("addToCart", prod);
+const handleAddToCart = (prod: LaptopProduct, quantity = 1) => {
+  const prodInCart = store.getters.getProductInCart(prod.id);
+  let newProd = {};
+  if (prodInCart) {
+    newProd = {
+      ...prodInCart,
+      quantity: prodInCart.quantity + quantity,
+    };
+  } else newProd = { ...prod, quantity: quantity };
+  store.dispatch("addToCart", newProd);
 };
-const inCart = computed(() => store.getters.isProductInCart(product.value));
 </script>
 
 <style scoped lang="scss">

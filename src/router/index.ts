@@ -5,6 +5,7 @@ import ProductSpecs from "@/views/product/Specs.vue";
 import ProductLayout from "@/views/product/Layout.vue";
 import ProductAbout from "@/views/product/About.vue";
 import NProgress from "nprogress";
+import CartView from "@/views/CartView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -32,6 +33,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Week2",
     component: () => import("../views/Week2Layout.vue"),
     children: [
+      {
+        path: "cart",
+        name: "Cart",
+        component: () => CartView,
+      },
       {
         path: "products",
         name: "Products",

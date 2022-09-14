@@ -7,8 +7,10 @@
   <router-view />
 </template>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Epilogue&family=Inter&family=Poppins&family=Quicksand&display=swap");
+
+$spacer: 32px;
 .verticle-center {
   top: 50%;
   transform: translateY(-50%);

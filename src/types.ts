@@ -19,3 +19,7 @@ export interface LaptopProduct extends Product {
   numReviews: number;
   category: string;
 }
+
+export interface CartItem extends LaptopProduct {
+  quantity: number;
+}
